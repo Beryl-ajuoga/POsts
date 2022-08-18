@@ -1,5 +1,6 @@
 package dev.beryl.myposts
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -23,7 +24,12 @@ class PostRvAdapter(var postList: List<Post>) :
             tvWords.text = currentPost.id.toString()
             tvNumber.text = currentPost.title
             tvTittle.text = currentPost.body
-//
+            val context=holder.itemView.context
+            holder.binding.rvlist.setOnClickListerner{
+                val intent=Intent(context,CommentActivity::class.java)
+                context.startActivity(intent)
+            }
+
         }
 
         holder.binding.imageView4.setOnClickListener{

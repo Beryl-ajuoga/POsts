@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dev.beryl.myposts.databinding.ActivityMainBinding
+import dev.beryl.myposts.databinding.PostListItemsBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,11 +44,17 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-
-
-
-
 }
+//    fun displayPosts(postListItemsBinding: List<Post>){
+//        binding.rvlist.layoutManager=LinearLayoutManager(this)
+//        var postRvAdapter(postslist)
+//        binding.rvlist.adapter.post
+//    }
+
+
+
+//
+//}
 
 
 
