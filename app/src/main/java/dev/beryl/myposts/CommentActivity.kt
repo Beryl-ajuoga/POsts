@@ -53,7 +53,7 @@ class CommentActivity : AppCompatActivity() {
 
             }
     }
-//
+
 //fun getComment() {
 //    var apiClient=ApiClient.buildApiClient(ApiInterface::class.java)
 ////    var apiClient = APIClient.buildApiClient(APInterface::class.java)
@@ -78,7 +78,7 @@ class CommentActivity : AppCompatActivity() {
 //    val commentsAdapter = CommentsRvAdapter(commentList)
 //    binding.rvComments.adapter = commentsAdapter
 //}
-//
+
 
 
 

@@ -21,11 +21,11 @@ class PostRvAdapter(var postList: List<Post>) :
         var currentPost = postList.get(position)
         with(holder.binding) {
             tvName.text = currentPost.userID.toString()
-            tvWords.text = currentPost.id.toString()
+            tvTittle.text=currentPost.id.toString()
             tvNumber.text = currentPost.title
             tvTittle.text = currentPost.body
             val context=holder.itemView.context
-            holder.binding.rvlist.setOnClickListerner{
+            holder.binding.rvComments.setOnClickListener(){
                 val intent=Intent(context,CommentActivity::class.java)
                 context.startActivity(intent)
             }

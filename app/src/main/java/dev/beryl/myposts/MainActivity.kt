@@ -46,10 +46,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-fun displayPost(postList: List<Post>){
-    var adapter =
 
-}
 
 
 
