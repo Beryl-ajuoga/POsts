@@ -3,6 +3,9 @@ package dev.beryl.myposts
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.renderscript.ScriptGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 
 
 import dev.beryl.myposts.databinding.ActivityCommentBinding
@@ -17,14 +20,14 @@ import retrofit2.http.POST
 class CommentActivity : AppCompatActivity() {
     lateinit var binding:ActivityCommentBinding
     var postId=0
-    val commentId=0
+//    val commentId=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityCommentBinding.inflate(layoutInflater)
         setContentView(binding.root)
         obtainPostId()
         fetchPost()
-        getComment()
+
     }
     fun obtainPostId(){
         postId=intent.extras?.getInt("POST_ID")?:0
@@ -36,45 +39,47 @@ class CommentActivity : AppCompatActivity() {
             override  fun onResponse(call:Call<Post>,response: Response<Post>){
                 var  post=response.body()
                 if (post!=null){
-                    binding.tvTitle.text=post.title
-                    binding.tvBody.text =post.body
+                    binding.tvPostTitle.text=post.title
+                    binding.tvPostBody.text=post.body
+
 
                 }
             }
 
             override fun onFailure(call: Call<Post>, t:Throwable) {
-                TODO("Not yet implemented")
+
             }
         })
 
             }
     }
-fun getComment(){
-    var APIClient=APIClient.buildApiClient(APIInterface::class.java)
-    var request = APIClient.getPostById(postId)
+//
+//fun getComment() {
+//    var apiClient=ApiClient.buildApiClient(ApiInterface::class.java)
+////    var apiClient = APIClient.buildApiClient(APInterface::class.java)
+//    var request = apiClient.getComments()
+//    request.enqueue(object : Callback<List<Comment>> {
+//        override fun onResponse(call: Call<List<Comment>>, response: Response<List<Comment>>) {
+//            if (response.isSuccessful){
+//                val comment = response.body()
+//                if (comment != null) {
+//                    displayComments(comment)
+//                }
+//            }
+//        }
+//
+//        override fun onFailure(call: Call<List<Comment>>, t: Throwable) {
+//            Toast.makeText(baseContext,t.message,Toast.LENGTH_LONG).show()
+//        }
+//    })
+//}
+//fun displayComments(commentList: List<Comment>) {
+//    binding.rvComments.layoutManager = LinearLayoutManager(this)
+//    val commentsAdapter = CommentsRvAdapter(commentList)
+//    binding.rvComments.adapter = commentsAdapter
+//}
+//
 
-    request.enqueue(object: Callback<Post> {
-        override fun onResponse(call: Call<Post>, response: Response<Post>) {
-            if (response.isSuccessful){
-                val post=response.body()
-//                    Toast.makeText(applicationContext,"fetched ${post} post",
-//                        Toast.LENGTH_LONG).show()
-                if (post != null) {
-                    binding.tvname.text =post.title
-                    binding.tvboddy.text=post.body
-                }
 
-            }
-        }
-
-        override fun onFailure(call: Call<Post>, t: Throwable) {
-//                Toast.makeText(baseContext,t.message,Toast.LENGTH_LONG).show()
-
-        }
-
-    })
-
-}
-}
 
 

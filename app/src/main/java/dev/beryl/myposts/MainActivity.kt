@@ -45,17 +45,11 @@ class MainActivity : AppCompatActivity() {
         })
     }
 }
-//    fun displayPosts(postListItemsBinding: List<Post>){
-//        binding.rvlist.layoutManager=LinearLayoutManager(this)
-//        var postRvAdapter(postslist)
-//        binding.rvlist.adapter.post
-//    }
 
+fun displayPost(postList: List<Post>){
+    var adapter =
 
-
-//
-//}
-
+}
 
 
 

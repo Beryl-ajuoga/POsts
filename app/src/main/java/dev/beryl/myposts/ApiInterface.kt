@@ -10,5 +10,6 @@ interface ApiInterface {
 
     @GET("/posts/{id}")
     fun getPostById(@Path("id")postid:Int):Call<Post>
+    abstract fun getComments(): Any
 
 }
